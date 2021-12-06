@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+list(APPEND CMAKE_PREFIX_PATH @PACKAGE_CMAKE_INSTALL_LIBDIR@/cmake/LibA)
+set(FOO_CONFIG_DIR  "${installedPrefix}/@CONFIG_INSTALL_DIR@" )
+message("CMAKE_PREFIX_PATH = ${CMAKE_PREFIX_PATH}")
+include(CMakeFindDependencyMacro)
+find_dependency(LibA REQUIRED)
+check_required_components("@PROJECT_NAME@")
+include("${CMAKE_CURRENT_LIST_DIR}/LibBTargets.cmake")

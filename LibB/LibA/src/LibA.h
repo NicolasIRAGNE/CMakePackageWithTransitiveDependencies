@@ -1,0 +1,5 @@
+
+namespace A
+{
+    void f();
+}
