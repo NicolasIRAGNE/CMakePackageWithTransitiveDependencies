@@ -1,8 +1,8 @@
 @PACKAGE_INIT@
 
+# Add dependency to PREFIX PATH because we know it has just been installed.
+# Alternatively, it should work if the user specifies it manually.
 list(APPEND CMAKE_PREFIX_PATH @PACKAGE_CMAKE_INSTALL_LIBDIR@/cmake/LibA)
-set(FOO_CONFIG_DIR  "${installedPrefix}/@CONFIG_INSTALL_DIR@" )
-message("CMAKE_PREFIX_PATH = ${CMAKE_PREFIX_PATH}")
 include(CMakeFindDependencyMacro)
 find_dependency(LibA REQUIRED)
 check_required_components("@PROJECT_NAME@")
