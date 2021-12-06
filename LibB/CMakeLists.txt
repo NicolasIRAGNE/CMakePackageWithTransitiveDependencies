@@ -7,6 +7,20 @@ add_library(LibB::LibB ALIAS LibB)
 
 add_subdirectory(LibA)
 
+include(FetchContent)
+
+find_package(nlohmann_json QUIET)
+if (NOT nlohmann_json_FOUND)
+    message(STATUS "nlohmann_json not found, downloading...")
+    FetchContent_Declare(json
+      GIT_REPOSITORY https://github.com/NicolasIRAGNE/nlohmann_json_cmake_fetchcontent
+      GIT_TAG nicolasiragne/interface)
+
+    FetchContent_MakeAvailable(json)
+endif()
+
+target_link_libraries(LibB PUBLIC nlohmann_json::nlohmann_json)
+
 target_link_libraries(LibB PUBLIC LibA::LibA)
 
 target_include_directories(LibB

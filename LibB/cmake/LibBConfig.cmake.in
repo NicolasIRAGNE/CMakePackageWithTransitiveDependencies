@@ -3,7 +3,9 @@
 # Add dependency to PREFIX PATH because we know it has just been installed.
 # Alternatively, it should work if the user specifies it manually.
 list(APPEND CMAKE_PREFIX_PATH @PACKAGE_CMAKE_INSTALL_LIBDIR@/cmake/LibA)
+list(APPEND CMAKE_PREFIX_PATH @PACKAGE_CMAKE_INSTALL_LIBDIR@/cmake/nlohmann_json)
 include(CMakeFindDependencyMacro)
 find_dependency(LibA REQUIRED)
+find_dependency(nlohmann_json REQUIRED)
 check_required_components("@PROJECT_NAME@")
 include("${CMAKE_CURRENT_LIST_DIR}/LibBTargets.cmake")
