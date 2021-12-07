@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(LibA LANGUAGES CXX VERSION 1.0)
 
-add_library(LibA STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/libA.cpp)
+add_library(LibA STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/LibA.cpp)
 add_library(LibA::LibA ALIAS LibA)
 
 target_include_directories(LibA
@@ -12,7 +12,7 @@ target_include_directories(LibA
 )
 
 set_target_properties(LibA PROPERTIES
-    PUBLIC_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/src/libA.h
+    PUBLIC_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/src/LibA.h
 )
 
 include(GNUInstallDirs)
