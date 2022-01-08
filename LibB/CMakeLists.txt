@@ -9,12 +9,16 @@ add_subdirectory(LibA)
 
 include(FetchContent)
 
-find_package(nlohmann_json QUIET)
+# find_package(nlohmann_json QUIET)
+set(JSON_Install ON)
 if (NOT nlohmann_json_FOUND)
     message(STATUS "nlohmann_json not found, downloading...")
     FetchContent_Declare(json
-      GIT_REPOSITORY https://github.com/NicolasIRAGNE/nlohmann_json_cmake_fetchcontent
-      GIT_TAG nicolasiragne/interface)
+  GIT_REPOSITORY https://github.com/nlohmann/json
+  GIT_TAG v3.10.5
+  GIT_PROGRESS TRUE
+  GIT_SHALLOW TRUE
+)
 
     FetchContent_MakeAvailable(json)
 endif()
