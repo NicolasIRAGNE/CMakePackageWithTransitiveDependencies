@@ -2,7 +2,7 @@
 
 ### Edit: nlohmann_json has been added after for demonstration, but it uses the same method as LibA. 
 
-This repository was created to test transitive dependencies with CMakem, and identify what needs to be done on individual targets.
+This repository was created to test transitive dependencies with CMake, and identify what needs to be done on individual targets.
 
 The situation is as follows:
 
