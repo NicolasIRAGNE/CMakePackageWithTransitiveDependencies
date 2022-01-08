@@ -10,16 +10,15 @@ add_subdirectory(LibA)
 include(FetchContent)
 
 # find_package(nlohmann_json QUIET)
-set(JSON_Install ON)
+set(JSON_Install ON) # If using the json upstream library, this has to be set to ON for the install to work
 if (NOT nlohmann_json_FOUND)
     message(STATUS "nlohmann_json not found, downloading...")
     FetchContent_Declare(json
-  GIT_REPOSITORY https://github.com/nlohmann/json
-  GIT_TAG v3.10.5
-  GIT_PROGRESS TRUE
-  GIT_SHALLOW TRUE
-)
-
+        GIT_REPOSITORY https://github.com/nlohmann/json
+        GIT_TAG v3.10.5
+        GIT_PROGRESS TRUE
+        GIT_SHALLOW TRUE
+    )
     FetchContent_MakeAvailable(json)
 endif()
 
@@ -30,7 +29,7 @@ target_link_libraries(LibB PUBLIC LibA::LibA)
 target_include_directories(LibB
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-        $<INSTALL_INTERFACE:include>  # <prefix>/include/mylib
+        $<INSTALL_INTERFACE:include>
 )
 
 set_target_properties(LibB PROPERTIES

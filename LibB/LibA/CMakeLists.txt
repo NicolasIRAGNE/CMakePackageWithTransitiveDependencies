@@ -8,7 +8,7 @@ add_library(LibA::LibA ALIAS LibA)
 target_include_directories(LibA
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
-        $<INSTALL_INTERFACE:include>  # <prefix>/include/mylib
+        $<INSTALL_INTERFACE:include>
 )
 
 set_target_properties(LibA PROPERTIES
